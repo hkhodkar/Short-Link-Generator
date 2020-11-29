@@ -14,16 +14,14 @@ namespace ShortLinkGenerator.EF.Persistence.Contexts.Configurations
             builder.ToTable("Url", "URL");
             builder.HasKey(b => b.UrlId);
             builder.Property(b => b.Link)
-                   .IsRequired()
-                   .HasMaxLength(2048);
-
+                   .IsRequired();
 
             builder.Property(b => b.CreatedDate)
                    .HasColumnType("datetime")
                    .HasDefaultValueSql("(getdate())");
 
             builder.Property(b => b.ShortLink)
-                   .HasMaxLength(10)
+                   .HasMaxLength(100)
                    .IsRequired(true);
         }
     }
