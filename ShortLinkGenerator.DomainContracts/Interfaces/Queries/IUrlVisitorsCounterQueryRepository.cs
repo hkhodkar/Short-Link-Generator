@@ -7,6 +7,6 @@ namespace ShortLinkGenerator.DomainContracts.Interfaces.Queries
 {
     public interface IUrlVisitorsCounterQueryRepository
     {
-        Task<long> GetUrlVisitorsCount();
+        Task<long> GetUrlVisitorsCount(string linkCode);
     }
 }

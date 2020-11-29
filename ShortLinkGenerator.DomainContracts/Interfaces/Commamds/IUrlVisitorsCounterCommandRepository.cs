@@ -7,6 +7,6 @@ namespace ShortLinkGenerator.DomainContracts.Interfaces.Commamds
 {
   public  interface IUrlVisitorsCounterCommandRepository
     {
-        Task AddCounter(Guid linkCode);
+        Task AddCounter(string linkCode);
     }
 }
