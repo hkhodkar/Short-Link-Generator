@@ -19,6 +19,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShortLinkGenerator.ApplicationContracts\ShortLinkGenerator.ApplicationContracts.csproj" />
+    <ProjectReference Include="..\ShortLinkGenerator.ApplicationServices\ShortLinkGenerator.ApplicationServices.csproj" />
+    <ProjectReference Include="..\ShortLinkGenerator.DomainContracts\ShortLinkGenerator.DomainContracts.csproj" />
+    <ProjectReference Include="..\ShortLinkGenerator.DomainServices\ShortLinkGenerator.DomainServices.csproj" />
     <ProjectReference Include="..\ShortLinkGenerator.EF.Persistence\ShortLinkGenerator.EF.Persistence.csproj" />
   </ItemGroup>
 

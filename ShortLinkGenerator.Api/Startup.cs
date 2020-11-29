@@ -8,6 +8,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using ShortLinkGenerator.ApplicationContracts.Interfaces.Commands;
+using ShortLinkGenerator.ApplicationContracts.Interfaces.Queries;
+using ShortLinkGenerator.ApplicationServices.Services.Commands;
+using ShortLinkGenerator.ApplicationServices.Services.Queries;
+using ShortLinkGenerator.DomainContracts.Interfaces.Commamds;
+using ShortLinkGenerator.DomainContracts.Interfaces.Queries;
+using ShortLinkGenerator.DomainServices.Services.Commands;
+using ShortLinkGenerator.DomainServices.Services.Queries;
 using ShortLinkGenerator.EF.Persistence.Contexts;
 using System;
 using System.Collections.Generic;
@@ -30,6 +38,12 @@ namespace ShortLinkGenerator.Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<URLContext>(option => option.UseSqlServer(Configuration["ConnectionStrings:Default"]));
+
+            services.AddScoped<IUrlQueryService, UrlQueryService>();
+            services.AddScoped<IUrlCommandService, UrlCommandService>();
+            services.AddTransient<IUrlQueryRepository, UrlQueryRepository>();
+            services.AddTransient<IUrlCommandRepository, UrlCommandRepository>();
+
 
             #region Swagger
             services.AddSwaggerGen(c =>
