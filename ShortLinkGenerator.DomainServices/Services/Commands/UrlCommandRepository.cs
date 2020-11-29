@@ -19,7 +19,7 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
             _context = context;
         }
 
-        public async Task<long> AddUrl(string link)
+        public async Task<Url> AddUrl(string link)
         {
             var exitEntity = await GetUrl(link);
 
@@ -27,7 +27,9 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
 
             _context.Add(entity);
 
-            return entity.UrlId;
+           await _context.SaveChangesAsync();
+
+            return entity;
 
         }
 
@@ -37,35 +39,38 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
             return await _context.Urls.Where(u => u.Link == link).FirstOrDefaultAsync();
         }
 
-        private Url BuildEntity(string link, Url exitEntity , out Url entity)
+        private Url BuildEntity(string link, Url exitEntity, out Url entity)
         {
             if (exitEntity != null)
             {
-                var linkCode = exitEntity.ShortLink;
+                var linkCode = exitEntity.LinkCode;
                 entity = CreateUrl(link, linkCode);
             }
             else
             {
                 var linkCode = Guid.NewGuid().ToString().Replace("-", "");
-                 entity = CreateUrl(link, linkCode);
+                entity = CreateUrl(link, linkCode);
             }
 
             return entity;
         }
 
-        private string GenerateShortLink(byte length = 6)
+        private string GenerateShortLink(byte length,string link)
         {
-            var shortLink = Guid.NewGuid().ToString().Replace("-", "").Substring(0, length);
 
-            while(_context.Urls.Any(s => s.ShortLink == shortLink))
-                shortLink = Guid.NewGuid().ToString().Replace("-", "").Substring(0, length);
+            Uri myUri = new Uri(link);
+            string host = myUri.Host;
+            var shortLink =host + "/L/" + Guid.NewGuid().ToString().Replace("-", "").Substring(0, length);
+
+            while (_context.Urls.Any(s => s.ShortLink == shortLink))
+                shortLink =host + "/L/" +Guid.NewGuid().ToString().Replace("-", "").Substring(0, length);
 
             return shortLink;
         }
 
-        private Url CreateUrl(string link,string linkCode)
+        private Url CreateUrl(string link, string linkCode)
         {
-            return new Url(link, GenerateShortLink(), linkCode);
+            return new Url(link, GenerateShortLink(6,link), linkCode);
         }
         #endregion
     }

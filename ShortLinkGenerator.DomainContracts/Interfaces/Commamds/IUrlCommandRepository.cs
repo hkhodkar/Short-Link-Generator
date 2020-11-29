@@ -8,6 +8,6 @@ namespace ShortLinkGenerator.DomainContracts.Interfaces.Commamds
 {
   public  interface IUrlCommandRepository
     {
-        Task<long> AddUrl(string link);
+        Task<Url> AddUrl(string link);
     }
 }

@@ -4,10 +4,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ShortLinkGenerator.DomainContracts.Interfaces.Commamds;
 using ShortLinkGenerator.ApplicationContracts.Interfaces.Commands;
+using ShortLinkGenerator.Core.Entities;
 
 namespace ShortLinkGenerator.ApplicationServices.Services.Commands
 {
-    class UrlCommandService : IUrlCommandService
+  public  class UrlCommandService : IUrlCommandService
     {
         private readonly IUrlCommandRepository _urlCommandRepository;
 
@@ -16,7 +17,7 @@ namespace ShortLinkGenerator.ApplicationServices.Services.Commands
             _urlCommandRepository = urlCommandRepository;
         }
         
-        public async Task<long> GenerateLink(string link)
+        public async Task<Url> GenerateLink(string link)
         {
           return await  _urlCommandRepository.AddUrl(link);
         }
