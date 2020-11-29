@@ -33,5 +33,10 @@ namespace ShortLinkGenerator.DomainServices.Services.Queries
             return await _context.Urls.Where(u => u.ShortLink == shortLink)
                                         .SingleOrDefaultAsync();
         }
+
+        public async Task<Url> GetLink(string link)
+        {
+            return await _context.Urls.Where(c => c.Link == link).FirstOrDefaultAsync();
+        }
     }
 }

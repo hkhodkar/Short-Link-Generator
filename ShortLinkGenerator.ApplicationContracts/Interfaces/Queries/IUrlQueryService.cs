@@ -10,5 +10,6 @@ namespace ShortLinkGenerator.ApplicationContracts.Interfaces.Queries
     {
         Task<string> GetShortLink(long id);
         Task<Url> GetLinkByShortLink(string shortLink);
+        Task<Url> GetLink(string link);
     }
 }

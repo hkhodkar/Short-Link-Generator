@@ -28,7 +28,9 @@ namespace ShortLinkGenerator.ApplicationServices.Services.Queries
             return await _urlQueryRepository.GetLinkByShortLink(shortLink);
         }
 
-
-
+        public async Task<Url> GetLink(string link)
+        {
+            return await _urlQueryRepository.GetLink(link);
+        }
     }
 }
