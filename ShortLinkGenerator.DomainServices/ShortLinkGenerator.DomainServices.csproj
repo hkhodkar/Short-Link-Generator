@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\ShortLinkGenerator.Core\ShortLinkGenerator.Core.csproj" />
+    <ProjectReference Include="..\ShortLinkGenerator.DomainContracts\ShortLinkGenerator.DomainContracts.csproj" />
+    <ProjectReference Include="..\ShortLinkGenerator.EF.Persistence\ShortLinkGenerator.EF.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

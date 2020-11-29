@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using ShortLinkGenerator.Core.Entities;
 
 namespace ShortLinkGenerator.DomainContracts.Interfaces.Commamds
 {
   public  interface IUrlCommandRepository
     {
-        Task<string> AddUrl(string Link);
+        Task<long> AddUrl(string link);
     }
 }
