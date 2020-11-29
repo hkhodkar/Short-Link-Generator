@@ -8,5 +8,6 @@ namespace ShortLinkGenerator.DomainContracts.Interfaces.Queries
     public interface IUrlQueryRepository
     {
         Task<string> GetShortLink(long id);
+        Task<string> GetLinkByShortLink(string shortLink);
     }
 }

@@ -19,7 +19,7 @@ namespace ShortLinkGenerator.Api.Controllers
         private readonly IUrlCommandService _urlCommandService;
 
         public UrlsController(
-                               IUrlQueryService urlQueryService, 
+                               IUrlQueryService urlQueryService,
                                IUrlCommandService urlCommandService
                               )
         {
@@ -27,7 +27,8 @@ namespace ShortLinkGenerator.Api.Controllers
             _urlCommandService = urlCommandService;
         }
 
-        [HttpGet("{id}" ,Name = "GetLink")]
+        [HttpGet("{id}", Name = "GetLink")]
+
         public async Task<IActionResult> GetLink([FromRoute] long id)
         {
             var link = await _urlQueryService.GetShortLink(id);
@@ -54,6 +55,20 @@ namespace ShortLinkGenerator.Api.Controllers
 
                 throw e;
             }
+        }
+
+        [HttpGet("GetLinkByShortLink/{shortLink}")]
+        public async Task<IActionResult> GetLinkByShortLink([FromRoute] string shortLink)
+        {
+            var decodeUrl = WebUtility.UrlDecode(shortLink);
+            var link =await _urlQueryService.GetLinkByShortLink(decodeUrl);
+
+            if (string.IsNullOrEmpty(link))
+                return NotFound();
+
+
+
+            return Ok(link);
         }
     }
 }

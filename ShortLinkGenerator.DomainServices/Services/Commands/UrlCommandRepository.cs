@@ -60,10 +60,10 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
 
             Uri myUri = new Uri(link);
             string host = myUri.Host;
-            var shortLink =host + "/L/" + Guid.NewGuid().ToString().Replace("-", "").Substring(0, length);
+            var shortLink =host + "/" + Guid.NewGuid().ToString().Replace("-", "").Substring(0, length);
 
             while (_context.Urls.Any(s => s.ShortLink == shortLink))
-                shortLink =host + "/L/" +Guid.NewGuid().ToString().Replace("-", "").Substring(0, length);
+                shortLink =host + "/" +Guid.NewGuid().ToString().Replace("-", "").Substring(0, length);
 
             return shortLink;
         }
