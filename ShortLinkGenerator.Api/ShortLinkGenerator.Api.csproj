@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\ShortLinkGenerator.ApplicationContracts\ShortLinkGenerator.ApplicationContracts.csproj" />
+    <ProjectReference Include="..\ShortLinkGenerator.EF.Persistence\ShortLinkGenerator.EF.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
