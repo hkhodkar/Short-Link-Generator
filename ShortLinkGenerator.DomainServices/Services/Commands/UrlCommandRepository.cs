@@ -14,6 +14,11 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
     {
         private readonly URLContext _context;
 
+        public UrlCommandRepository(URLContext context)
+        {
+            _context = context;
+        }
+
         public async Task<long> AddUrl(string link)
         {
             var exitEntity = await GetUrl(link);
@@ -25,6 +30,8 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
             return entity.UrlId;
 
         }
+
+        #region utilities
         private async Task<Url> GetUrl(string link)
         {
             return await _context.Urls.Where(u => u.Link == link).FirstOrDefaultAsync();
@@ -60,5 +67,6 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
         {
             return new Url(link, GenerateShortLink(), linkCode);
         }
+        #endregion
     }
 }
