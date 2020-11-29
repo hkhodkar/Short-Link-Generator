@@ -3,9 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A53245EA-70B9-4EA1-868E-D43BF84B4C90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E9D5FAFD-E5AC-47F7-B5DC-85AE6843F265}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLinkGenerator.Core", "ShortLinkGenerator.Core\ShortLinkGenerator.Core.csproj", "{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882} = {A53245EA-70B9-4EA1-868E-D43BF84B4C90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2AC72838-B72F-4CB6-80BD-13D11321016B}
