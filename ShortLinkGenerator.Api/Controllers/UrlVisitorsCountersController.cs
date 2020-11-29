@@ -22,7 +22,7 @@ namespace ShortLinkGenerator.Api.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("GetVisitorsCount")]
         public async Task<IActionResult> GetVisitorsCount(string link)
         {
             var dto =await _urlQueryService.GetLink(link);

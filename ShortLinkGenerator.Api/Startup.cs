@@ -37,21 +37,10 @@ namespace ShortLinkGenerator.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<URLContext>(option => option.UseSqlServer(Configuration["ConnectionStrings:Default"]));
-
-            services.AddScoped<IUrlQueryService, UrlQueryService>();
-            services.AddScoped<IUrlCommandService, UrlCommandService>();
-            services.AddTransient<IUrlQueryRepository, UrlQueryRepository>();
-            services.AddTransient<IUrlCommandRepository, UrlCommandRepository>();
-
-            services.AddScoped<IUrlVisitorsCounterQueryService, UrlVisitorsCounterQueryService>();
-            services.AddScoped<IUrlVisitorsCounterCommandService, UrlVisitorsCounterCommandService>();
-            services.AddScoped<IUrlVisitorsCounterQueryRepository, UrlVisitorsCounterQueryRepository>();
-            services.AddScoped<IUrlVisitorsCounterCommandRepository, UrlVisitorsCounterCommandRepository>();
-
-
-
-
+            services
+                .AddUrlServices()
+                .AddUrlUrlVisitorsCounterServices()
+                .AddDbContext<URLContext>(option => option.UseSqlServer(Configuration["ConnectionStrings:Default"]));
 
             #region Swagger
             services.AddSwaggerGen(c =>
