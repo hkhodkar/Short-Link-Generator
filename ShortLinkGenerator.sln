@@ -7,9 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A53245EA-70B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E9D5FAFD-E5AC-47F7-B5DC-85AE6843F265}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLinkGenerator.Core", "ShortLinkGenerator.Core\ShortLinkGenerator.Core.csproj", "{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortLinkGenerator.Core", "ShortLinkGenerator.Core\ShortLinkGenerator.Core.csproj", "{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLinkGenerator.EF.Persistence", "ShortLinkGenerator.EF.Persistence\ShortLinkGenerator.EF.Persistence.csproj", "{289921A8-1958-45BF-B706-7A5F5A48EC32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortLinkGenerator.EF.Persistence", "ShortLinkGenerator.EF.Persistence\ShortLinkGenerator.EF.Persistence.csproj", "{289921A8-1958-45BF-B706-7A5F5A48EC32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLinkGenerator.DomainContracts", "ShortLinkGenerator.DomainContracts\ShortLinkGenerator.DomainContracts.csproj", "{C55DBBB4-58AF-4034-8F3B-65C8F26B9730}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{289921A8-1958-45BF-B706-7A5F5A48EC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{289921A8-1958-45BF-B706-7A5F5A48EC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{289921A8-1958-45BF-B706-7A5F5A48EC32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C55DBBB4-58AF-4034-8F3B-65C8F26B9730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C55DBBB4-58AF-4034-8F3B-65C8F26B9730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55DBBB4-58AF-4034-8F3B-65C8F26B9730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C55DBBB4-58AF-4034-8F3B-65C8F26B9730}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4A7DB93B-FDB6-4C09-B72A-D225DC8FE882} = {A53245EA-70B9-4EA1-868E-D43BF84B4C90}
 		{289921A8-1958-45BF-B706-7A5F5A48EC32} = {A53245EA-70B9-4EA1-868E-D43BF84B4C90}
+		{C55DBBB4-58AF-4034-8F3B-65C8F26B9730} = {A53245EA-70B9-4EA1-868E-D43BF84B4C90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2AC72838-B72F-4CB6-80BD-13D11321016B}
