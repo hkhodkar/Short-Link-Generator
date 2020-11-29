@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using ShortLinkGenerator.DomainContracts.Interfaces.Queries;
 using ShortLinkGenerator.EF.Persistence.Contexts;
+using ShortLinkGenerator.Core.Entities;
 
 namespace ShortLinkGenerator.DomainServices.Services.Queries
 {
@@ -27,10 +28,9 @@ namespace ShortLinkGenerator.DomainServices.Services.Queries
         }
 
 
-        public async Task<string> GetLinkByShortLink(string shortLink)
+        public async Task<Url> GetLinkByShortLink(string shortLink)
         {
             return await _context.Urls.Where(u => u.ShortLink == shortLink)
-                                        .Select(u => u.Link)
                                         .SingleOrDefaultAsync();
         }
     }

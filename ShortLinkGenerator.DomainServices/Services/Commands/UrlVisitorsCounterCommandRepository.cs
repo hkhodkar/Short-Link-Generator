@@ -23,7 +23,7 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
             var entity = await _context.UrlVisitorsCounters.Where(l => l.LinkCode == linkCode).FirstOrDefaultAsync();
             entity.CountUp();
 
-            _context.Add(entity);
+            _context.Update(entity);
             await _context.SaveChangesAsync();
         }
     }

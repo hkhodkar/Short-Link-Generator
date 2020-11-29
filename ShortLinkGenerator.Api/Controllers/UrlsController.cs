@@ -17,14 +17,17 @@ namespace ShortLinkGenerator.Api.Controllers
 
         private readonly IUrlQueryService _urlQueryService;
         private readonly IUrlCommandService _urlCommandService;
+        private readonly IUrlVisitorsCounterCommandService _urlVisitorsCounterCommandService;
 
         public UrlsController(
                                IUrlQueryService urlQueryService,
-                               IUrlCommandService urlCommandService
+                               IUrlCommandService urlCommandService,
+                               IUrlVisitorsCounterCommandService urlVisitorsCounterCommandService
                               )
         {
             _urlQueryService = urlQueryService;
             _urlCommandService = urlCommandService;
+            _urlVisitorsCounterCommandService = urlVisitorsCounterCommandService;
         }
 
         [HttpGet("{id}", Name = "GetLink")]
@@ -61,14 +64,14 @@ namespace ShortLinkGenerator.Api.Controllers
         public async Task<IActionResult> GetLinkByShortLink([FromRoute] string shortLink)
         {
             var decodeUrl = WebUtility.UrlDecode(shortLink);
-            var link =await _urlQueryService.GetLinkByShortLink(decodeUrl);
+            var entity =await _urlQueryService.GetLinkByShortLink(decodeUrl);
 
-            if (string.IsNullOrEmpty(link))
+            if (string.IsNullOrEmpty(entity.Link))
                 return NotFound();
 
+          await  _urlVisitorsCounterCommandService.AddCount(entity.LinkCode);
 
-
-            return Ok(link);
+            return Ok(entity.Link);
         }
     }
 }

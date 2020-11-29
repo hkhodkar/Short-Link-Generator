@@ -44,6 +44,14 @@ namespace ShortLinkGenerator.Api
             services.AddTransient<IUrlQueryRepository, UrlQueryRepository>();
             services.AddTransient<IUrlCommandRepository, UrlCommandRepository>();
 
+            services.AddScoped<IUrlVisitorsCounterQueryService, UrlVisitorsCounterQueryService>();
+            services.AddScoped<IUrlVisitorsCounterCommandService, UrlVisitorsCounterCommandService>();
+            services.AddScoped<IUrlVisitorsCounterQueryRepository, UrlVisitorsCounterQueryRepository>();
+            services.AddScoped<IUrlVisitorsCounterCommandRepository, UrlVisitorsCounterCommandRepository>();
+
+
+
+
 
             #region Swagger
             services.AddSwaggerGen(c =>

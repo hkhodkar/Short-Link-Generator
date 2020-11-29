@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ShortLinkGenerator.ApplicationContracts.Interfaces.Queries;
+using ShortLinkGenerator.Core.Entities;
 using ShortLinkGenerator.DomainContracts.Interfaces.Queries;
 
 namespace ShortLinkGenerator.ApplicationServices.Services.Queries
@@ -22,7 +23,7 @@ namespace ShortLinkGenerator.ApplicationServices.Services.Queries
            return await _urlQueryRepository.GetShortLink(id);
         }
 
-        public async Task<string> GetLinkByShortLink(string shortLink)
+        public async Task<Url> GetLinkByShortLink(string shortLink)
         {
             return await _urlQueryRepository.GetLinkByShortLink(shortLink);
         }

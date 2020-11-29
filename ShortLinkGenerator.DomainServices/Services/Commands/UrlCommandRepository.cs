@@ -27,6 +27,14 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
 
             _context.Add(entity);
 
+            if (!CheckIsExistsInUrlVisitorsCounters(entity.LinkCode))
+            {
+                var urlVisitorsCounter = new UrlVisitorsCounter(entity.LinkCode);
+                _context.Add(urlVisitorsCounter);
+            }
+
+
+
            await _context.SaveChangesAsync();
 
             return entity;
@@ -71,6 +79,11 @@ namespace ShortLinkGenerator.DomainServices.Services.Commands
         private Url CreateUrl(string link, string linkCode)
         {
             return new Url(link, GenerateShortLink(6,link), linkCode);
+        }
+
+        private bool CheckIsExistsInUrlVisitorsCounters(string linkCode)
+        {
+            return _context.UrlVisitorsCounters.Any(c => c.LinkCode == linkCode);
         }
         #endregion
     }
