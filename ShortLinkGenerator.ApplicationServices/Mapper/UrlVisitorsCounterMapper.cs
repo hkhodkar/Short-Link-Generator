@@ -1,4 +1,4 @@
-﻿using ShortLinkGenerator.ApplicationServices.DTOs;
+﻿using ShortLinkGenerator.ApplicationContracts.DTOs;
 using ShortLinkGenerator.Core.Entities;
 
 namespace ShortLinkGenerator.ApplicationServices.Mapper

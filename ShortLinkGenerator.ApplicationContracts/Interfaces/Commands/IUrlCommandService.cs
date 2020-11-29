@@ -1,4 +1,5 @@
-﻿using ShortLinkGenerator.Core.Entities;
+﻿using ShortLinkGenerator.ApplicationContracts.DTOs;
+using ShortLinkGenerator.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,6 @@ namespace ShortLinkGenerator.ApplicationContracts.Interfaces.Commands
 {
     public interface IUrlCommandService
     {
-        Task<Url> GenerateLink(string link);
+        Task<UrlDto> GenerateLink(string link);
     }
 }

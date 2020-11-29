@@ -48,10 +48,10 @@ namespace ShortLinkGenerator.Api.Controllers
             try
             {
                 var decodeUrl = WebUtility.UrlDecode(link);
-                var entity = await _urlCommandService.GenerateLink(decodeUrl);
+                var dto = await _urlCommandService.GenerateLink(decodeUrl);
 
 
-                return CreatedAtRoute("GetLink", new { id = entity.UrlId }, entity.ShortLink);
+                return CreatedAtRoute("GetLink", new { id = dto.UrlId }, dto.ShortLink);
             }
             catch (Exception e)
             {
@@ -64,14 +64,14 @@ namespace ShortLinkGenerator.Api.Controllers
         public async Task<IActionResult> GetLinkByShortLink([FromRoute] string shortLink)
         {
             var decodeUrl = WebUtility.UrlDecode(shortLink);
-            var entity =await _urlQueryService.GetLinkByShortLink(decodeUrl);
+            var dto =await _urlQueryService.GetLinkByShortLink(decodeUrl);
 
-            if (string.IsNullOrEmpty(entity.Link))
+            if (dto == null)
                 return NotFound();
 
-          await  _urlVisitorsCounterCommandService.AddCount(entity.LinkCode);
+          await  _urlVisitorsCounterCommandService.AddCount(dto.LinkCode);
 
-            return Ok(entity.Link);
+            return Ok(dto.Link);
         }
     }
 }

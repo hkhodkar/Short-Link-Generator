@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShortLinkGenerator.ApplicationContracts\ShortLinkGenerator.ApplicationContracts.csproj" />
+    <ProjectReference Include="..\ShortLinkGenerator.Common\ShortLinkGenerator.Common.csproj" />
     <ProjectReference Include="..\ShortLinkGenerator.DomainContracts\ShortLinkGenerator.DomainContracts.csproj" />
   </ItemGroup>
 

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLinkGenerator.Applicat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLinkGenerator.Api", "ShortLinkGenerator.Api\ShortLinkGenerator.Api.csproj", "{E457A3E5-4424-4770-A0F6-21B89F270FDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLinkGenerator.Common", "ShortLinkGenerator.Common\ShortLinkGenerator.Common.csproj", "{B7781BDA-4E75-43AB-B1A1-C9C7C2B73C6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{E457A3E5-4424-4770-A0F6-21B89F270FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E457A3E5-4424-4770-A0F6-21B89F270FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E457A3E5-4424-4770-A0F6-21B89F270FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7781BDA-4E75-43AB-B1A1-C9C7C2B73C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7781BDA-4E75-43AB-B1A1-C9C7C2B73C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7781BDA-4E75-43AB-B1A1-C9C7C2B73C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7781BDA-4E75-43AB-B1A1-C9C7C2B73C6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{64367180-FD48-47B7-8C2A-D58F42CE1EFA} = {A53245EA-70B9-4EA1-868E-D43BF84B4C90}
 		{BC704874-FAAD-4E9E-9F25-479F62E99E36} = {A53245EA-70B9-4EA1-868E-D43BF84B4C90}
 		{E457A3E5-4424-4770-A0F6-21B89F270FDB} = {A53245EA-70B9-4EA1-868E-D43BF84B4C90}
+		{B7781BDA-4E75-43AB-B1A1-C9C7C2B73C6C} = {A53245EA-70B9-4EA1-868E-D43BF84B4C90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2AC72838-B72F-4CB6-80BD-13D11321016B}

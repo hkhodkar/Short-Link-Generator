@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using ShortLinkGenerator.ApplicationContracts.DTOs;
 using ShortLinkGenerator.ApplicationContracts.Interfaces.Queries;
+using ShortLinkGenerator.ApplicationServices.Mapper;
 using ShortLinkGenerator.Core.Entities;
 using ShortLinkGenerator.DomainContracts.Interfaces.Queries;
 
@@ -23,14 +25,25 @@ namespace ShortLinkGenerator.ApplicationServices.Services.Queries
            return await _urlQueryRepository.GetShortLink(id);
         }
 
-        public async Task<Url> GetLinkByShortLink(string shortLink)
+        public async Task<UrlDto> GetLinkByShortLink(string shortLink)
         {
-            return await _urlQueryRepository.GetLinkByShortLink(shortLink);
+            var entity = await _urlQueryRepository.GetLinkByShortLink(shortLink);
+            if (entity == null)
+                return null;
+            return UrLMapper.Map(entity);
         }
 
-        public async Task<Url> GetLink(string link)
+        public async Task<UrlDto> GetLink(string link)
         {
-            return await _urlQueryRepository.GetLink(link);
+            var entity =await _urlQueryRepository.GetLink(link);
+            if (entity == null)
+                return null;
+            else
+            {
+                return UrLMapper.Map(entity);
+
+            }
+
         }
     }
 }

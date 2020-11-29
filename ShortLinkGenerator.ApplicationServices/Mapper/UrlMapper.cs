@@ -1,4 +1,4 @@
-﻿using ShortLinkGenerator.ApplicationServices.DTOs;
+﻿using ShortLinkGenerator.ApplicationContracts.DTOs;
 using ShortLinkGenerator.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ namespace ShortLinkGenerator.ApplicationServices.Mapper
         {
             return new UrlDto()
             {
+                UrlId = entity.UrlId,
                 Link = entity.Link,
                 LinkCode = entity.LinkCode,
                 ShortLink = entity.ShortLink

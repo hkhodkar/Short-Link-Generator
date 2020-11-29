@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using ShortLinkGenerator.DomainContracts.Interfaces.Commamds;
 using ShortLinkGenerator.ApplicationContracts.Interfaces.Commands;
 using ShortLinkGenerator.Core.Entities;
+using ShortLinkGenerator.ApplicationContracts.DTOs;
+using ShortLinkGenerator.ApplicationServices.Mapper;
 
 namespace ShortLinkGenerator.ApplicationServices.Services.Commands
 {
@@ -17,9 +19,11 @@ namespace ShortLinkGenerator.ApplicationServices.Services.Commands
             _urlCommandRepository = urlCommandRepository;
         }
         
-        public async Task<Url> GenerateLink(string link)
+        public async Task<UrlDto> GenerateLink(string link)
         {
-          return await  _urlCommandRepository.AddUrl(link);
+          var entity = await  _urlCommandRepository.AddUrl(link);
+
+            return UrLMapper.Map(entity);
         }
     }
 }

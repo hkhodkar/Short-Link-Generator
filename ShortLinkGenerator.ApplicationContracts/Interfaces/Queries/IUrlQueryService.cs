@@ -1,4 +1,5 @@
-﻿using ShortLinkGenerator.Core.Entities;
+﻿using ShortLinkGenerator.ApplicationContracts.DTOs;
+using ShortLinkGenerator.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,7 @@ namespace ShortLinkGenerator.ApplicationContracts.Interfaces.Queries
     public interface IUrlQueryService
     {
         Task<string> GetShortLink(long id);
-        Task<Url> GetLinkByShortLink(string shortLink);
-        Task<Url> GetLink(string link);
+        Task<UrlDto> GetLinkByShortLink(string shortLink);
+        Task<UrlDto> GetLink(string link);
     }
 }
