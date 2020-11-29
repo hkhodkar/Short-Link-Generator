@@ -14,12 +14,14 @@ namespace ShortLinkGenerator.EF.Persistence.Contexts
 
 
         public DbSet<Url> Urls { get; set; }
+        public DbSet<UrlVisitorsCounter> UrlVisitorsCounters { get; set; }
 
 
         #region OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UrlConfigurations());
+            modelBuilder.ApplyConfiguration(new UrlVisitorsCounterConfigurations());
 
         }
         #endregion
